@@ -1,0 +1,195 @@
+</<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Anael Valles</title>
+    <script type="module" src="js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+
+    <div id="back_three"><canvas id="canvas0"></canvas></div>
+    <div id="sub_back_three"></div>
+
+    <header>
+      <div class="contMenu">
+        <div class="subcMenu">
+          <div class="btnH">Inicio</div>
+          <div class="btnH">Trabajos</div>
+          <div class="btnH">Servicios</div>
+          <div class="btnH">Contacto</div>
+        </div>
+      </div>
+    </header>
+
+    <h1 id="txtBack">INICIO</h1>
+
+    <div class="contG">
+
+      <div class="cont0">
+        <div class="subcPerfil"><div class="cPerfil" style="background-image: url(../media/img.png);"></div></div>
+        <h3>¡Hola que tal!</h3>
+        <h2>Me especializo en venta e-comerce utilizando medios digitales, novedades tecnológicas, presupuestos publicitarios con un atención al cliente esencial.</h2>
+      </div>
+
+      <div class="cont1">
+          <h3>Trabajos</h3>
+          <div class=cont_gridP>
+            <div class="contProyecto">
+              <img src="media/img_lv_web.png" onclick="location.href='https://laservizcaya.com'"></img>
+              <h2 class="enlace">LASER VIZCAYA.COM</h2>
+              <p>Página WEB para mejorar la experiencia de compra.</p>
+            </div>
+            <div class="contProyecto">
+              <img src="media/img_lv_data.png"></img>
+              <h2>LASER VIZCAYA Data</h2>
+              <p>Sistema con gestión empresarial.</p>
+            </div>
+          </div>
+      </div>
+
+      <div class="cont2">
+        <h3>Servicios</h3>
+        <table>
+          <td id="btnSH0" onclick="set_panelH(0)" onmouseover="setHover_btn(0)">Diseño</td>
+          <td id="btnSH1" onclick="set_panelH(1)" onmouseover="setHover_btn(1)">Front-End</td>
+          <td id="btnSH2" onclick="set_panelH(2)" onmouseover="setHover_btn(2)">Back-End</td>
+        </table>
+        <div class="contHabilidades">
+          <div class="cont_grid" id="cont_grid0">
+            <img class="btnSvg" onclick="setText(0)" src="svg/svgCorel.svg"></img>
+            <img class="btnSvg" onclick="setText(1)" src="svg/svgInkscape.svg"></img>
+            <img class="btnSvg" onclick="setText(2)" src="svg/svgBlender.svg"></img>
+          </div>
+          <div class="cont_grid" id="cont_grid1">
+            <img class="btnSvg" onclick="setText(3)" src="svg/svgHtml.svg"></img>
+            <img class="btnSvg" onclick="setText(4)" src="svg/svgCss.svg"></img>
+            <img class="btnSvg" onclick="setText(5)" src="svg/svgJavascript.svg"></img>
+            <img class="btnSvg" onclick="setText(6)" src="svg/svgJava.svg"></img>
+            <img class="btnSvg" onclick="setText(7)" src="svg/svgThreejs.svg"></img>
+          </div>
+          <div class="cont_grid" id="cont_grid2">
+            <img class="btnSvg" onclick="setText(8)" src="svg/svgApache.svg"></img>
+            <img class="btnSvg" onclick="setText(9)" src="svg/svgPhp.svg"></img>
+            <img class="btnSvg" onclick="setText(10)" src="svg/svgMysql.svg"></img>
+          </div>
+        </div>
+        <h2 id="texto_hab"></h2>
+      </div>
+
+      <div class="cont3">
+        <h3>Contáctame</h3>
+        <div class="cont_gridC">
+          <img class="btnSvg" src="svg/svgGmail.svg"></img>
+          <img class="btnSvg" src="svg/svgWhatsapp.svg"></img>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+
+      let txt = [];
+
+      let btnSelect = 0;
+      let panelH = [];
+      var ef_H=0,ef_T=0;
+
+      txt[0] = "CorelDRAW es un programa avanzado de edición gráfica con funciones básicas de composición de página, utilizado en el ámbito de las artes gráficas.";
+      txt[1] = "Inkscape es un editor de gráficos vectoriales libre y de código abierto.";
+      txt[2] = "Blender es un programa informático multi plataforma, dedicado especialmente al modelado, iluminación, renderizado, la animación y creación de gráficos tridimensionales.";
+
+      txt[3] = "HTML es un lenguaje de marcado que se utiliza para el desarrollo de páginas de Internet.";
+      txt[4] = "CSS son las siglas de “Cascading Style Sheets” es un lenguaje para la composición y estructuración de páginas web.";
+      txt[5] = "JavaScript es un lenguaje de programación que puede ser interpretado directamente por los navegadores web.";
+      txt[6] = "Java es un lenguaje de programación ampliamente utilizado para codificar aplicaciones.";
+      txt[7] = "Three.js es una biblioteca liviana escrita en JavaScript para crear y mostrar gráficos animados por computadora en 3D en un navegador Web.";
+
+      txt[8] = "Apache consigue que la comunicación entre el servidor web y el cliente web (usuario que solicita la información) sea fluida y constante.";
+      txt[9] = "PHP es un lenguaje de programación de uso general que se adapta especialmente al desarrollo web.";
+      txt[10] = "MySQL es un sistema de gestión de bases de datos relacional.";
+
+      function setText(val){
+        if(val!=11){ document.getElementById('texto_hab').innerHTML = ""+txt[val]; }else{ document.getElementById('texto_hab').innerHTML = ""; }
+        ef_T=0;
+      }
+
+      panelH[0] = document.getElementById('cont_grid0');
+      panelH[1] = document.getElementById('cont_grid1');
+      panelH[2] = document.getElementById('cont_grid2');
+
+      let btnH = [];
+      btnH[0] = document.getElementById('btnSH0');
+      btnH[1] = document.getElementById('btnSH1');
+      btnH[2] = document.getElementById('btnSH2');
+
+      btnH[0].onmouseover = function() {setHover_btn(0)};
+      btnH[0].onmouseout = function() {setOut_btn(0)};
+
+      btnH[1].onmouseover = function() {setHover_btn(1)};
+      btnH[1].onmouseout = function() {setOut_btn(1)};
+
+      btnH[2].onmouseover = function() {setHover_btn(2)};
+      btnH[2].onmouseout = function() {setOut_btn(2)};
+
+      btnH[0].addEventListener("click",function(){ btnSelect = 0; set_panelH(btnSelect); setText(11); ef_H=0; });
+      btnH[1].addEventListener("click",function(){ btnSelect = 1; set_panelH(btnSelect); setText(11); ef_H=0; });
+      btnH[2].addEventListener("click",function(){ btnSelect = 2; set_panelH(btnSelect); setText(11); ef_H=0; });
+
+      function set_panelH(num) {
+        for(var i=0; i<3; i++){
+          panelH[i].style.display = "none";
+          btnH[i].style.background = "white";
+          btnH[i].style.color = "#1D84FF";
+        }
+        panelH[num].style.display = "grid";
+
+        btnH[num].style.background = "#1D84FF";
+        btnH[num].style.color = "white";
+      }
+      function setHover_btn(num){
+        if( num!=btnSelect ){
+          btnH[num].style.background = "#1D84FF";
+          btnH[num].style.color = "white";
+        }
+      }
+      function setOut_btn(num){
+        if( num!=btnSelect ){
+          btnH[num].style.background = "white";
+          btnH[num].style.color = "#1D84FF";
+        }
+      }
+
+      var ef=0,fondo="",Rt="",ef_back=1;
+
+      function getScrollPoistion() {
+        var ys = window.scrollY;
+        if (window.innerWidth>830){
+          if( ys <= 2500){  fondo=true; }else{ fondo=false; }
+        }else{
+          if( ys <= 2000){  fondo=true; }else{ fondo=false; }
+        }
+        if( fondo == false ){
+          setText(11);
+          if( ef_back>0 ){ ef_back-=0.1; document.getElementById('sub_back_three').style.opacity=""+ef_back; }else{ ef_back=0; }
+        }else{
+          if( ef_back<1 ){ ef_back+=0.1; document.getElementById('sub_back_three').style.opacity=""+ef_back; }else{ ef_back=1; }
+        }
+        //document.getElementById('txtBack').innerHTML =""+titulo;
+      }
+
+      set_panelH(0);
+      ////////////////////////////////////////////// Steep //////////////////////////////////////////////
+      function animate() {
+        requestAnimationFrame( animate );
+        getScrollPoistion();
+
+        if( ef<1 ){ ef+=0.1; document.getElementById('txtBack').style.opacity = ""+ef; }else{ document.getElementById('txtBack').style.opacity = "1"; }
+        if( ef_H<1 ){ ef_H+=0.1; panelH[btnSelect].style.opacity = ""+ef_H; }else{ panelH[btnSelect].style.opacity = "1"; }
+        if( ef_T<1 ){ ef_T+=0.1; document.getElementById('texto_hab').style.opacity = ""+ef_T; }else{ document.getElementById('texto_hab').style.opacity = "1"; }
+
+      }
+      ////////////////////////////////////////////// Steep //////////////////////////////////////////////
+      animate();
+  </script>
+</html>
